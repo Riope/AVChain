@@ -84,7 +84,8 @@ func ReadData(ctx contractapi.TransactionContextInterface, v_id int, timestamp f
 		return "", err
 	}
 
-	// sh := shell.NewShell("localhost:5001")
+	// Uncomment to convert the CID to data using IPFS
+	// sh := shell.NewShell("IP_IPFS_node:5001")
 	// data, err := sh.Cat(asset.RGBCam0)
 	// if err != nil {
 	// 	return "", fmt.Errorf("failed to read from ipfs: %v", err)
