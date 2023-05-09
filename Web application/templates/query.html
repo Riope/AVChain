@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="main-block">
+    <form action="{{ url_for('ReadVehicleFrames')}}" method="post">
+      <label for="vehicleID">Enter vehicle ID:</label>
+      <input type="text" id="vehicleID" name="vehicleID">
+      <a href="/query/ReadFrames">
+          <button>Query timestamps</button>
+      </a>
+    </form>
+    
+    <form action="{{ url_for('ReadFrameData')}}" method="post">
+      <label for="user">User:</label>
+      <select label="dropdown" name="user">
+        <option value="Alice">Alice</option>
+        <option value="Bob">Bob</option>
+        <option value="Cathy">Cathy</option>
+      </select>
+      <label for="query_type">Data type:</label>
+      <select label="dropdown" name="query_type">
+        <option value="ReadCam0Data">RGB camera 0</option>
+        <option value="ReadCam1Data">RGB camera 1</option>
+        <option value="ReadLIDARData">LIDAR sensor</option>
+        <option value="ReadSpeedData">Speed (kmph)</option>
+        <option value="ReadThrottleData">Throttle</option>
+        <option value="ReadSteerData">Steering</option>
+        <option value="ReadBrakeData">Braking</option>
+        <option value="ReadGearData">Gear</option>
+        <option value="ReadHandBrakeData">Hand Brake</option>
+      </select>
+      <label for="vehicleID">Enter vehicle ID:</label>
+      <input type="text" id="vehicleID" name="vehicleID" placeholder="Vehicle ID">
+      <label for="start_time">Enter start time:</label>
+      <input type="text" id="start_time" name="start_time" placeholder="Start time">
+      <label for="end_time">Enter end time:</label>
+      <input type="text" id="end_time" name="end_time" placeholder="End time">
+      <a href="/query/ReadData">
+        <button>Query Data</button>
+      </a>
+    </form>
+  </div>
+{% endblock content %}

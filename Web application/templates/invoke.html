@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="main-block">
+    <form action="{{ url_for('generate')}}" method="post">
+      <label for="town">Enter town:</label>
+      <input type="text" id="town" name="town" placeholder="Town (1-10)">
+      <label for="vehicleID">Enter vehicle ID:</label>
+      <input type="text" id="vehicleID" name="vehicleID" placeholder="Vehicle ID (integer)">
+      <label for="frames">Enter number of frames:</label>
+      <input type="text" id="frames" name="frames", placeholder="Number of frames to be simulated">
+      <label for="npcs">Enter number of vehicles:</label>
+      <input type="text" id="npcs" name="npcs" placeholder="Number of vehicles in environment">
+      <a href="/simulate/generate">
+        <button>Generate Data</button>
+      </a>
+    </form>
+  </div>
+{% endblock content %}

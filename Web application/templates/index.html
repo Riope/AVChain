@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="https://carla.org/">CARLA</a>
+          <small class="text-muted">date</small>
+        </div>
+        <h2><a class="article-title" href="/simulate">Simulator</a></h2>
+        <p class="article-content">Simulates environment in CARLA and pushes the extracted data to a blockchain network</p>
+      </div>
+    </article>
+    
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="https://ipfs.tech/">IPFS</a>
+          <a class="mr-2" href="https://www.hyperledger.org/use/fabric">Hyperledger Fabric</a>
+          <small class="text-muted">date</small>
+        </div>
+        <h2><a class="article-title" href="/query">Queries</a></h2>
+        <p class="article-content">Retrieves data from the blockchain network when required</p>
+      </div>
+    </article>
+{% endblock content %}

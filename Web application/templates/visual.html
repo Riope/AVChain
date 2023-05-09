@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block script %}
+    <script>
+        function displayImage() {
+            var folder = "../static/output/";
+            var images = [];
+            var i = 0;
+
+            function changeImage() {
+                document.getElementById("myImage").src = folder + images[i];
+                i = (i + 1) % images.length;
+            }
+
+            function getImages() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "/get_images", true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        images = JSON.parse(xhr.responseText);
+                        console.log(images);
+                        setInterval(changeImage, 500);
+                    }
+                };
+                xhr.send();
+            }
+            getImages();
+        }
+    </script>
+{% endblock script %}
+
+{% block content %}
+    <img id="myImage" src="" />
+{% endblock content %}
