@@ -18,8 +18,7 @@ import time
 client_IP = 'localhost'
 server_IP = "10.14.75.128"
 server_username = "akarsh"
-pkey_path = "C:\\Users\\akars\\.ssh\\id_rsa"
-# pkey_path = "user@1234"
+pkey_path = "/home/ssural/.ssh/id_rsa"
 
 class sim:
 	def __init__(self, args) -> None:
@@ -206,9 +205,17 @@ def exec_cmd(command):
 	return out.decode()
 
 def run_sim(args):
+	try:
+		pid = subprocess.check_output(["lsof", "-t", "-i:2000"]).strip()
+		if pid:
+			subprocess.call(["kill", pid])
+	except:
+		pass
+
 	arg_list = list()
+	arg_list.append("-RenderOffScreen")
 	arg_list.append("-carla-port=" + str(args.port))
-	proc = subprocess.Popen(["C:\\Users\\akars\\CARLA\\CarlaUE4.exe"] + arg_list)
+	proc = subprocess.Popen(["/home/ssural/CARLA/CarlaUE4.sh"] + arg_list)
 	time.sleep(20)
 	return proc
 
